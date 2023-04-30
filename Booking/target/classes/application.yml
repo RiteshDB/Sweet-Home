@@ -1,0 +1,9 @@
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultzone: http://localhost:8081/hotel/
+
+    instance:
+      localhost

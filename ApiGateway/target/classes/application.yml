@@ -1,0 +1,25 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+    cloud:
+      gateway:
+      routes:
+         - id: BOOKINGSERVICE
+           url: lb://BOOKINGSERVICE
+           predicates:
+            - Path = /hotel/**
+
+         - id: PAYMENTSERVICE
+           url: lb://PAYMENTSERVICE
+           predicates:
+            - Path = /payment/**
+
+      discover:
+        enabled: true
+
+  eureka:
+    client: <2keys>
+    instance: localhost
